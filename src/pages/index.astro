@@ -1,0 +1,261 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import PageLayout from "@/layouts/Base.astro";
+import { getAllPosts, sortMDByDate } from "@/utils";
+
+const MAX_POSTS = 10;
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+
+/* remove section for now, update later 
+const cactusTech: { desc: string; href: string; title: string }[] = [
+	{
+		desc: "Build fast websites, faster.",
+		href: "https://astro.build",
+		title: "Astro",
+	},
+	{
+		desc: "Rapidly build modern websites without ever leaving your HTML.",
+		href: "https://tailwindcss.com",
+		title: "Tailwind CSS",
+	},
+	{
+		desc: "Simple and easy-to-use markup language.",
+		href: "https://www.markdownguide.org/",
+		title: "Markdown",
+	},
+	{
+		desc: "Markdown for the component era.",
+		href: "https://mdxjs.com/",
+		title: "MDX",
+	},
+	{
+		desc: "Generating png Open Graph images for blog posts.",
+		href: "https://github.com/vercel/satori",
+		title: "Satori",
+	},
+	{
+		desc: "A fully static search library.",
+		href: "https://pagefind.app/",
+		title: "Pagefind",
+	},
+	{
+		desc: "An easy to use Icon component for Astro.",
+		href: "https://github.com/natemoo-re/astro-icon#readme",
+		title: "Astro Icon",
+	},
+	{
+		desc: "Highly customisable source code & syntax highlighter",
+		href: "https://expressive-code.com/",
+		title: "Expressive Code",
+	},
+]; */
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<!--Intro-->
+	<section>
+		<h1 class="title mb-6">Hello World!</h1>
+		<p class="mb-4">
+			<strong>Hey, my name is Ashni.</strong> Welcome to my little sliver of the web! Following my curiosities
+			across new technologies, projects and communities. I've started to document my learn-in-public
+			progress and sharing as I go. Always open to connecting 👋 say hi (most active on X - Twitter recently).
+		</p>
+		<SocialList />
+	</section>
+	<!--Latest Blog Posts-->
+	<section aria-label="Blog post list" class="mt-16">
+		<h2 class="title mb-4 text-xl">Posts</h2>
+		<ul class="space-y-4">
+			{
+				allPostsByDate.map((p) => (
+					<li class="flex flex-col gap-x-2 sm:flex-row">
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<!--Photo Section-->
+	<section class="mt-16">
+		<h2 class="title mb-4 text-xl">A few of my favorite things</h2>
+		<p class="mb-4">hover for caption</p>
+		<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+			<div class="grid gap-4">
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53079752146_2af85be73f_k.jpg"
+						alt="a big tree"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						small trees. big trees. all the trees.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080205240_bec124f5ac_k.jpg"
+						alt="a dozen donuts"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						a dozen donuts. chocolate + sprinkles ❤️
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080339758_1d0d482abc_k.jpg"
+						alt="castle"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						everything about castles, forts and anything old.
+					</span>
+				</div>
+			</div>
+			<div class="grid gap-4">
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080041069_e43c86d3e0_k.jpg"
+						alt="my grandmother's green, blue and pink silk sarees"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						some of my grandmother's old sarees.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53079264262_1a6465710f_k.jpg"
+						alt="an ice-cream 99 flake"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						99 flake (no longer 99p but still worth every penny).
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080251965_c642d21eaa_k.jpg"
+						alt="gujarati thali"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						nothing beats a thali.
+					</span>
+				</div>
+			</div>
+			<div class="grid gap-4">
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080239550_12b17089b3_k.jpg"
+						alt="a variegated autumn leaf yellow and red"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						autumn foliage.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080294488_0e9b70835a_k.jpg"
+						alt="the royal crescent in bath, uk"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						the royal cresent in bath.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53079825026_4088f39d61_k.jpg"
+						alt="mangoes"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						all kinds of mango.
+					</span>
+				</div>
+			</div>
+			<div class="grid gap-4">
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080327133_8d232b2ab1_k.jpg"
+						alt="1000+piece puzzle"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						1000+ piece puzzles.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53081866669_943286aed3_k.jpg"
+						alt="castle window"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						windows in castles, forts and anything old.
+					</span>
+				</div>
+				<div class="relative inline-block">
+					<img
+						class="inset-0 h-auto max-w-full rounded-lg opacity-75 hover:opacity-100"
+						src="https://live.staticflickr.com/65535/53080371983_055e951500_k.jpg"
+						alt="good books"
+					/>
+					<span
+						class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-60 text-sm text-white opacity-0 hover:opacity-100"
+					>
+						a stack of good books.
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- update section later
+	<section class="mt-16">
+		<h2 class="title mb-4 text-xl">Technologies</h2>
+		<dl class="space-y-4">
+			{
+				cactusTech.map(({ desc, href, title }) => (
+					<div class="flex flex-col gap-2 md:flex-row">
+						<dt>
+							<span class="flex">
+								<a class="cactus-link" href={href} rel="noopener noreferrer" target="_blank">
+									{title}
+								</a>
+								:
+							</span>
+						</dt>
+						<dd>{desc}</dd>
+					</div>
+				))
+			} 
+		</dl>
+	</section> -->
+</PageLayout>

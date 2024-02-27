@@ -1,0 +1,21 @@
+{
+	"name": "Ashpatx Personal Blog",
+	"short_name": "Ashpatx Blog",
+	"description": "My personal blog and sliver of the web",
+	"icons": [
+		{
+			"src": "/192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"start_url": "https://ashnipatel.com/",
+	"background_color": "#1d1f21",
+	"theme_color": "#C10060",
+	"display": "standalone"
+}

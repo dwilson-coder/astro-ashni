@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root,
+	:root[data-theme="light"] {
+		color-scheme: light;
+		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
+		--theme-bg: 55deg 60% 92%; /* HEX #F7F5DF rgb(247 245 223) light manila */
+		--theme-link: 330deg 100% 38%; /* HEX #C10060 rgb(194 0 97) dark pink */
+		--theme-text: 203deg 11% 15%; /* HEX #22272a rgb(34 39 42) very dark grey*/
+		--theme-accent: 330deg 100% 38%;
+		--theme-accent-2: 0deg 0% 7%; /* #111 rgb(17 17 17) dark grey */
+		--theme-quote: 330deg 100% 38%;
+	}
+
+	:root[data-theme="dark"] {
+		color-scheme: dark;
+		--theme-bg: 210deg 6% 12%; /* HEX #1d1f21 rgb(29 31 33) very dark grey */
+		--theme-link: 247deg 100% 85%; /* HEX #BCB3FF rgb(188 179 255) pastel lilac */
+		--theme-text: 220deg 3% 79%; /* HEX #c9cacc rgb(201 202 204) light grey */
+		--theme-accent: 247deg 100% 85%;
+		--theme-accent-2: 0deg 0% 93%; /* HEX #eee rgb(238 238 238) very light grey */
+		--theme-quote: 102deg 100% 86%; /* HEX #eee rgb(204 255 182) pastel green */
+	}
+
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		@apply mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
+	}
+}

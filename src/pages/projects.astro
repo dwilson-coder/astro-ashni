@@ -1,0 +1,75 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Project Bento",
+	title: "Projects",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="space-y-6">
+		<p>I'm a lifelong learner currently improving how I read, write and code.</p>
+
+		<p>
+			On a journey to ship my ideas 💡 I look forward to meeting learners from all backgrounds and
+			working together.
+		</p>
+
+		<div class="grid grid-cols-1 gap-8">
+			<div
+				class="w-full rounded-lg border border-neutral-700 p-4 shadow transition-transform hover:-rotate-2 hover:transform sm:p-8"
+			>
+				<div class="mb-4 flex items-center justify-between">
+					<h2 class="text-md font-semibold leading-none">Version 1 Newsletter</h2>
+
+					<a
+						href="https://version1.beehiiv.com/subscribe"
+						target="_blank"
+						class="text-hover:underline text-md flex items-center gap-2 rounded-lg font-medium text-blue-600 dark:text-blue-400"
+						>Visit
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+							<path d="M11 13l9 -9"></path>
+							<path d="M15 4h5v5"></path>
+						</svg></a
+					>
+				</div>
+				<p>Revisit the first version of your favorite creator projects.</p>
+
+				<iframe
+					class="sm:w-315 mt-4 flex w-full items-center justify-center"
+					height="560"
+					title="30 Second Trailer: Version 1 Newsletter"
+					src="https://youtube.com/embed/eQ1AbIBAjm4"
+					frameborder="0"
+					allowfullscreen></iframe>
+			</div>
+			<div
+				class="w-full rounded-lg border border-neutral-700 p-4 shadow transition-transform hover:-rotate-2 hover:transform sm:p-8"
+			>
+				<div class="mb-4 flex items-center justify-between">
+					<h2 class="text-md font-semibold leading-none">Energy Mgmt Kanban</h2>
+
+					<a
+						href="#"
+						class="text-hover:underline text-md flex items-center gap-2 rounded-lg font-medium text-blue-600 dark:text-blue-400"
+						>WIP
+					</a>
+				</div>
+				<p>Match energy to task.</p>
+			</div>
+		</div>
+	</div>
+</PageLayout>
